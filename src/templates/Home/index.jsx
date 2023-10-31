@@ -15,6 +15,9 @@ export const Home = () =>{
   const [page, setPage] = useState(0);
   const [postsPerPage, setPostsPerPage] = useState(10);
   const [searchValue, setSearchValue] = useState('');
+
+  //manter apenas para evitar warning
+  setPostsPerPage(10);
   
   const noMorePosts = page + postsPerPage >= allPosts.length;
   const filteredPosts  = !! searchValue ? 
