@@ -16,8 +16,6 @@ export const Home = () =>{
   const [postsPerPage, setPostsPerPage] = useState(10);
   const [searchValue, setSearchValue] = useState('');
 
-  //manter apenas para evitar warning
-  setPostsPerPage(10);
   
   const noMorePosts = page + postsPerPage >= allPosts.length;
   const filteredPosts  = !! searchValue ? 
@@ -36,6 +34,9 @@ export const Home = () =>{
   },[]);
 
   useEffect(() =>{
+    //manter apenas para evitar warning
+    setPostsPerPage(10);
+  
     handleLoadPosts(0, postsPerPage);
   },[handleLoadPosts, postsPerPage])
 
